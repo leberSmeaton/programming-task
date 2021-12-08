@@ -1,5 +1,5 @@
+// require in file system
 const fs = require('fs');
-console.log('Hello world');
 
 // File read
 const logFile = fs.readFileSync("./programming-task-example-data_(1).log", 'utf-8');
@@ -25,12 +25,11 @@ let result = dataArrayOfLogFiles.map(ip => ip[0]);
 /* Find number of unique ip addresses using the ES6 set and spread */
 let uniqueResult = [...new Set(result)]
 // Console log data and present concatenated information.
-console.log(`The number of unique IP addresses ${uniqueResult.length}.`) 
+console.log(`The number of unique IP addresses: ${uniqueResult.length}.`) 
 
 
 /* Find the 3 most visited URLs */
 urlsResults = dataArrayOfLogFiles.map(ip => ip[6]);
-console.log(urlsResults);
 // Docs, Faq and blog were the most visited.
 // Use regex to find the words inside the forward slashes and find the ! not unique url paths.
 // Push into new array, filter and indexOf top 3 to find the most active URLS.  

@@ -20,7 +20,7 @@ $ node programming-task.js
 
 ## Testing:
 
-Testing is done with some code snippets and psuedocode.
+Testing is done with Ruby's RSPEC testing tool, some code snippets and psuedocode.
 
 _Gems to bundle in for RSpec_
 
@@ -33,7 +33,7 @@ _Gems to bundle in for RSpec_
 **gem 'rspec-rails'**
 
 - testing framework with more flexibility to create tests and work and minimise edge issues.
-- A great testing gem as generates folders and files when creating models, which means we don't have to.
+- A great testing gem as generates folders and files when creating models, which means we don't have to generate as much by hand.
 
 **gem 'factory_bot_rails'**
 
@@ -44,6 +44,8 @@ _Gems to bundle in for RSpec_
 > A factory for a log file may look something like this...
 
 `50.112.00.11 - admin [11/Jul/2018:17:33:01 +0200] "GET /asset.css HTTP/1.1" 200 3574 "-" "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/536.6 (KHTML, like Gecko) Chrome/20.0.1092.0 Safari/536.6"`
+
+It's factory file for the logfile model may be set up to read a log file like this,
 
 ```
 FactoryBot.define do
@@ -72,3 +74,6 @@ end
 There are an additional updates and uncomments to the rails_helper.rb and spec_helper.rb required to help with running RSPEC. For example:
 
 - uncommenting line 23 of the rails_helper.rb file ensures our spec and support folder and any files inside are required for testing purposes.
+
+To run RSPEC in terminal and see if test examples are working in terminal,
+`$ rspec`
