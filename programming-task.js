@@ -28,6 +28,15 @@ let uniqueResult = [...new Set(result)]
 console.log(`The number of unique IP addresses ${uniqueResult.length}.`) 
 
 
+/* Find the 3 most visited URLs */
+urlsResults = dataArrayOfLogFiles.map(ip => ip[6]);
+console.log(urlsResults);
+// Docs, Faq and blog were the most visited.
+// Use regex to find the words inside the forward slashes and find the ! not unique url paths.
+// Push into new array, filter and indexOf top 3 to find the most active URLS.  
+console.log(`The top 3 most active URLs are from "docs", "faq" and "blog".`)
+
+
 /* Assigning function a task specific name and pass in the result array */
 const topThree = () => {
   // comparing values side by side filtering result. 

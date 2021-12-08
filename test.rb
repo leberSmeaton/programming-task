@@ -1,31 +1,31 @@
-# require in gems for testing
+# Require in for testing
 require 'rails_helper'
 
 RSpec.describe Logfile, type: :model do
-  # defining what context the test applies to.
+  # Defining what context the test applies to.
   context "factory" do
-    # when to do the test 
+    # When to do the test 
     before(:all) do
       @logfile = build(:logfile)
     end
 
-    # describe what it should do
-    # kind of redundant but on the simplest level but the logfile must be valid
-    # if you forget to update the factory when you change your model, your test will break.
+    # Describe what it should do
+    # "it has a valid factory" is kind of redundant but on the simplest level but the logfile must be valid
+    # If you forget to update the factory when you change your model, your test will break.
     it "has a valid factory" do
       expect(@logfile).to be_valid
     end
   end
 
-  # a new test context that will validate the tasks are returning the correct
+  # A new test context that will validate that the tasks are returning the correct IP address
   context "unique IP address" do
-    # before each test...
+    # Before each test...
     before(:each) do
-      # before constructing the logfile
+      # Before the build populates with the new instance
       @logfile = build(:logfile)
     end
 
-    # describe test
+    # describe test 
     it "is a unique IP address" do
       # the logfileitem is not !== another logfile item
       expect(@logfileitem).to eq(!@logfileitem)
@@ -37,6 +37,7 @@ RSpec.describe Logfile, type: :model do
     end
   end
 
+  # A test context that will expect that the tasks are returning a URL an expected number of times
   context "most visited URL" do
     before(:each) do
       # before constructing the logfile
@@ -46,7 +47,8 @@ RSpec.describe Logfile, type: :model do
     # repeating checking that it is a URL
     it "has the syntax of an URL" do 
       # expect it to follow the same URL pattern
-      expect(@logfileitem.url).to be("/" + "doc" + "/")
+      # this url is the target file section of request section
+      expect(@logfileitem.url).to be("/asset.css")
     end
     
     it "has been seen greater than or equal to 2 times" do 
@@ -55,6 +57,7 @@ RSpec.describe Logfile, type: :model do
     end
   end
 
+  # A test context that will expect that the IP is correct and active and that it is expected a number of times
   context "active IP address" do
     before(:each) do
       # before constructing the logfile
@@ -64,7 +67,7 @@ RSpec.describe Logfile, type: :model do
     # repeating checking that it is an IP address
     it "has the syntax of an IP address" do 
       # expect it to follow the same IP address pattern
-      expect(@logfileitem.ip).to eq("177.71.128.21")
+      expect(@logfileitem.ip).to eq("50.112.00.11")
     end
 
     # to ensure it is an active IP
